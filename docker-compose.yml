@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+
+#in application.yml by default count jpasharding=2
+#you must create db with prefix dom2_community_{count=2}_{numberDB}
+#  postgres:
+#    image: "postgres:9.6"
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=1234
+#    volumes:
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#    ports:
+#    - 5432:5432
+#
+#
+#  redis:
+#    image: redis
+#    ports:
+#    - 6379:6379
+
+  solr:
+    image: "solr:5.5"
+    ports:
+    - "8983:8983"
+    hostname: localhost
+
+    volumes:
+    - ~/IdeaProjects/solr/:/opt/solr/server/solr/dom2/
+    - ~/IdeaProjects/solr/:/opt/solr/server/solr/dom2/conf
+
